@@ -153,3 +153,32 @@ if configuration.get('scheduler.enabled'):
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
+
+
+# Fichier : applications/yourapp/models/db_waitlist.py
+
+import datetime
+
+
+db.define_table('waitlist',
+    Field('email', 'string',
+          # Contrainte au niveau de la base de données pour une unicité absolue.
+          label=T('Your Email Address'),
+          comment='The email address of the person signing up for the waitlist.',
+          # Validations au niveau de l'application/formulaire.
+          requires=[
+              IS_EMAIL(error_message=T('Please enter a valid email address.')),
+              IS_NOT_IN_DB(db, 'waitlist.email',
+                           error_message=T('This email is already on the waitlist.'))
+          ]),
+
+    Field('created_on', 'datetime',
+          label=T('Subscribed On'),
+          # La lambda garantit que la date est calculée au moment de l'insertion.
+          default=lambda: datetime.datetime.utcnow(),
+          # Ces champs ne doivent pas être modifiables par l'utilisateur.
+          readable=False, writable=False),
+    
+    # On spécifie un nom plus lisible pour les enregistrements dans appadmin.
+    format='%(email)s'
+)

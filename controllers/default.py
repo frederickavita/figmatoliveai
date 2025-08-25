@@ -5,9 +5,37 @@
 # -------------------------------------------------------------------------
 
 # ---- example index page ----
-def figmatoliveai():
-    return dict()
+# Fichier : applications/yourapp/controllers/default.py
 
+def figmatoliveai():
+    """
+    Cette fonction gère le formulaire d'inscription personnalisé
+    pour la liste d'attente.
+    """
+    # 1. Création de l'objet SQLFORM
+    form = SQLFORM(db.waitlist, fields=['email'])
+
+    # 2. Personnalisation des widgets pour correspondre à votre HTML
+    
+    # Personnalisation du champ de saisie email
+    form.custom.widget.email['_placeholder'] = 'your.email@company.com'
+    form.custom.widget.email['_aria-label'] = 'Email address'
+    # Note : Les classes CSS de votre exemple ne sont pas présentes ici, 
+    # mais vous pourriez les ajouter avec `_class` si nécessaire.
+    
+    # Personnalisation du bouton de soumission
+    form.custom.submit['_class'] = 'ui primary button'
+    form.custom.submit['_value'] = 'Notify Me at Launch'
+
+
+    # 3. Traitement du formulaire
+    if form.process().accepted:
+        response.flash = T('Thank you for joining the waitlist!')
+    elif form.errors:
+        response.flash = T('Please correct the errors below.')
+
+    # 4. On passe le formulaire personnalisé à la vue
+    return dict(form=form)
 
 def index():
     response.flash = T("Hello World")

@@ -1,0 +1,331 @@
+{{extend "malayout.html"}}
+{{block body}}
+  <!-- 
+      ========================================
+      NAVIGATION MENU
+      ========================================
+    -->
+    <nav class="ui large top fixed inverted menu" style="border: none;">
+        <div class="ui container">
+            <a href="#" class="header item">
+                <strong>FigmaToLive.ai</strong>
+            </a>
+            <div class="right menu">
+                <div class="item">
+                    <a href="#pre-registration" class="ui inverted button">Join the Beta</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+  
+{{if response.flash:}}
+    <div id="timed-message" class="ui warning message">
+      <i class="close icon"></i>
+      <div class="header">
+       {{if response.flash == 'Thank you for joining the waitlist!':}}
+        Success !
+       {{else:}}
+        Error !
+       {{pass}}
+    </div>
+      {{=response.flash}}
+    </div>
+
+    
+    {{pass}}
+
+
+    
+
+    <!-- 
+      ========================================
+      1. HERO SECTION
+      ========================================
+    -->
+    <header class="ui inverted vertical masthead center aligned segment">
+        <div class="ui container">
+            <div class="ui text container" style="margin-top: 8em;">
+                <h1 class="ui inverted header" style="font-size: 3.5em; font-weight: 700;">
+                    Stop Presenting Pictures. Start Testing Real Apps.
+                </h1>
+                <h2 class="ui inverted header" style="font-weight: 400;">
+                    FigmaToLive.ai turns your static designs into interactive React prototypes in 5 minutes. Coming soon.
+                </h2>
+                <p style="font-size: 1.2em; color: #ccc;" class="sub-headline">
+                    Import your design. Describe interactions in natural language. Generate a live web app your users can actually test. Without writing a line of code.
+                </p>
+                <a id="cta-hero" href="#pre-registration" class="ui huge primary button">
+                    Request Early Access <i class="right arrow icon"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Trust Indicators -->
+        <div class="ui text container" style="margin-top: 8em;">
+            <div class="trust-indicators" style="color: #ccc;">
+                ✓ Generates React Code &nbsp;&nbsp; ✓ Figma to Live in 5 Min &nbsp;&nbsp; ✓ No Developer Dependency
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 
+          ========================================
+          2. PROBLEM / PAIN SECTION
+          ========================================
+        -->
+        <section class="ui vertical stripe segment">
+            <div class="ui text container">
+                <h2 style="font-size: 2.5em; text-align: center;">The "Looks Great" Deception.</h2>
+                <div style="font-size: 1.2em; margin-top: 2em;">
+                    <p>It's Monday morning. You're presenting the design you spent all week on. It's not just a drawing. It's the culmination of strategic thinking: user flows, behavioral hypotheses, solutions to complex problems. The design is the vessel, but the intelligence is the cargo.</p>
+                    <p>And the only feedback you get is: "Looks great."</p>
+                    <p>In that moment, all your strategic cargo is ignored. Your expertise is reduced to an aesthetic skill. You feel that bitter frustration of knowing the meeting was a failure, that critical points weren't validated, and that <strong>your potential is being throttled by your tools</strong>. You're seen as the one who "makes things pretty," not the one who designs how the product actually works.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          ========================================
+          3. SOLUTION / METHOD SECTION
+          ========================================
+        -->
+        <section id="solution" class="ui vertical stripe segment">
+            <div class="ui container">
+                <div class="ui middle aligned stackable grid">
+                    <div class="eight wide column">
+                        <h3>Today's tools generate the appearance. FigmaToLive.ai generates the interaction.</h3>
+                        <h2 style="font-size: 2.5em;">Bridge the Reality Gap. In 3 Simple Steps.</h2>
+                        <p>Traditional prototypes fail because they only simulate the look. FigmaToLive.ai is different: it will allow you to translate your <strong>behavioral intent</strong>. You'll no longer just show what it looks like; you'll show how it works.</p>
+                    </div>
+                    <div class="eight wide right floated column">
+                        <!-- VISUAL PLACEHOLDER -->
+                        <img src="https://placehold.co/600x400/252525/444444?text=Static+vs+Interactive" class="ui large bordered rounded image" alt="A visual comparison of a static, lifeless interface next to a dynamic, interactive one.">
+                    </div>
+                </div>
+
+                <div class="ui three column very relaxed stackable grid" style="margin-top: 4em; text-align: center;">
+                    <div class="column">
+                        <h4 class="ui header"><i class="upload icon"></i> 1. IMPORT (Your Figma Design)</h4>
+                    </div>
+                    <div class="column">
+                        <h4 class="ui header"><i class="comments outline icon"></i> 2. ANNOTATE (Your Logic in Plain English)</h4>
+                    </div>
+                    <div class="column">
+                        <h4 class="ui header"><i class="cogs icon"></i> 3. GENERATE (Your Interactive Prototype)</h4>
+                    </div>
+                </div>
+
+                <div style="margin-top: 5em; text-align: center;">
+                    <h3>From Static to Live in 30 Seconds.</h3>
+                    <p>Enough talk. See for yourself how simple it is to bring a design to life.</p>
+                    <!-- ULTRA-SHORT DEMO VIDEO -->
+                    <video id="demo-video" 
+                           class="ui massive rounded bordered image" 
+                           controls 
+                           preload="metadata" 
+                           poster="https://placehold.co/1000x562/1A1A1A/F0F0F0?text=Watch+the+Demo+(<30s)"
+                           aria-label="Demonstration video of FigmaToLive.ai"
+                           loading="lazy">
+                        <!-- TODO: Replace with the actual video source -->
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="caption" style="margin-top: 1em; color: #ccc;"><strong>You annotate the intent. We generate the code.</strong> It's that simple.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          ========================================
+          4. BENEFITS / TRANSFORMATION SECTION
+          ========================================
+        -->
+        <section class="ui vertical stripe segment">
+            <div class="ui container">
+                <h2 style="text-align: center; font-size: 2.5em;">Become the Catalyst for Product Validation.</h2>
+                <p style="text-align: center; font-size: 1.2em;">FigmaToLive.ai isn't just a time-saver. It's a status-changer.</p>
+                <div class="ui two column doubling stackable grid benefits-grid" style="margin-top: 4em;">
+                    <div class="column">
+                        <h3 class="ui header"><i class="star outline icon"></i> Gain Influence</h3>
+                        <p>Shift from being a "visual asset provider" to a product strategist. You no longer deliver mockups; you deliver prototypes that generate tangible proof.</p>
+                    </div>
+                    <div class="column">
+                        <h3 class="ui header"><i class="chart bar outline icon"></i> Replace Opinions with Facts</h3>
+                        <p>Stop saying, "here's what it could look like," and start asserting, "here are the issues users faced while testing the prototype."</p>
+                    </div>
+                    <div class="column">
+                        <h3 class="ui header"><i class="rocket icon"></i> Radically Accelerate Cycles</h3>
+                        <p>Unblock the development bottleneck. Test and validate your design hypotheses in a day, not weeks.</p>
+                    </div>
+                    <div class="column">
+                        <h3 class="ui header"><i class="comments outline icon"></i> Get Authentic Feedback</h3>
+                        <p>Stop getting polite, useless feedback. Watch real users interact with real logic and uncover the critical requirements that static mockups never reveal.</p>
+                        <p class="sub-benefit" style="color: #999; font-style: italic;">↳ Especially powerful for complex applications, dashboards, and data-rich interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          ========================================
+          5. SOCIAL PROOF / FOUNDER SECTION
+          ========================================
+        -->
+        <section class="ui vertical stripe segment">
+            <div class="ui container">
+                <div class="ui stackable grid">
+                    <div class="five wide column">
+                        <!-- FOUNDER'S PHOTO -->
+                        <img id="founder-photo" src="{{=URL('static', 'images/photo.jpg')}}" class="ui medium circular image" alt="Portrait of Frederic Kavita, creator of FigmaToLive.ai" loading="lazy">
+                    </div>
+                    <div class="eleven wide column">
+                        <h2 style="font-size: 2em;">"I was tired of my expertise being reduced to an aesthetic skill."</h2>
+                        <blockquote style="font-size: 1.2em; font-style: italic; color: #ccc; border-left: 3px solid #555; padding-left: 1em;">
+                            "As a designer, I constantly lived the 'reality gap' frustration. I'd spend weeks designing complex logic, only to present a picture and hear 'looks great.' I tried every tool, but they only generated empty, functionally dead shells. So I built FigmaToLive.ai with one obsession: to allow designers to translate not just their vision, but their intelligence."
+                        </blockquote>
+                        <p style="font-size: 1.2em; text-align: right;"><strong>— Frederic Kavita</strong>, Creator of FigmaToLive.ai</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          ========================================
+          6. PRE-REGISTRATION SECTION
+          ========================================
+        -->
+        <section id="pre-registration" class="ui vertical stripe segment" style="background: #222;">
+            <div class="ui container text center">
+                <h2 style="font-size: 2.5em;">Be the first to transform your designs.</h2>
+                <p style="font-size: 1.2em;">Join the waiting list for early access and an exclusive launch offer reserved for the first members.</p>
+                
+                <!-- TODO: Integrate email capture with a service like Mailchimp. -->
+                <div id="pre-registration-form">
+                      <form action="#" class="ui huge action input" style="width:100%;"  enctype="multipart/form-data" method="post">
+        
+                        {{=form.custom.widget.email}}
+        
+                        {{=form.custom.submit}}
+                        {{=form.custom.end}}
+
+                        {{if form.errors:}}
+                        <div class="ui error message">
+                        <div class="header"> Your submitted form contains the following errors:</div>
+                         <ul class="list">
+
+                              {{for fieldname in form.errors:}}
+                            <li>{{=fieldname}} error: {{=form.errors[fieldname]}}</li>
+                            {{pass}}
+
+                         </ul>  
+                          {{form.errors.clear()}}  
+                        </div>
+                    {{pass}}
+
+                 
+                    <p style="margin-top: 1em; color: #999; font-size: 0.9em;">No spam. Just one notification for the launch and the special offer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          ========================================
+          7. FAQ SECTION
+          ========================================
+        -->
+        <section class="ui vertical stripe segment">
+            <div class="ui container" style="max-width: 800px;">
+                <h2 style="text-align: center; font-size: 2.5em;">Your Expert Questions, Our Honest Answers.</h2>
+                <div style="margin-top: 3em;">
+                    <details>
+                        <summary>Let's be honest: will the generated code actually be usable?</summary>
+                        <div class="content">
+                            <p>Excellent and crucial question. Our obsession is to generate clean, readable React code that uses standard hooks (e.g., useState). For rapid prototyping and user testing, it will be more than sufficient. For production integration, it should be considered a very high-quality scaffolding that will save your developers precious time on the initial structure. Our goal is not to replace developers, but to provide them with a functional, user-tested foundation.</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>How will you handle complex states and API calls?</summary>
+                        <div class="content">
+                            <p>The launch version will excel at handling component-level state and simple to moderate interactions. Managing API calls and integrating with external design systems (like Material-UI) are the top priorities on our post-launch roadmap.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          ========================================
+          8. FINAL CTA SECTION
+          ========================================
+        -->
+        <section class="ui vertical stripe segment center aligned">
+            <div class="ui container">
+                <h2 style="font-size: 2.5em;">Will you let static tools keep throttling your expertise?</h2>
+                <p style="font-size: 1.2em;">Or are you ready to bridge the reality gap and become the true catalyst for your team's product strategy?</p>
+                <a href="#pre-registration" class="ui huge primary button" style="margin-top: 1em;">
+                    Join the Waiting List
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+      ========================================
+      9. FOOTER
+      ========================================
+    -->
+    <footer class="ui inverted vertical footer segment">
+        <div class="ui center aligned container">
+            <div class="ui stackable inverted divided grid">
+                <div class="sixteen wide column">
+                    <h4 class="ui inverted header">FigmaToLive.ai</h4>
+                    <p>Accelerating the creation of quality digital products.</p>
+                    <div class="ui horizontal inverted small divided link list">
+                        <a class="item" href="#">Legal</a>
+                        <a class="item" href="#">Contact</a>
+                        <a class="item" href="#">Terms of Use</a>
+                    </div>
+                    <div style="margin-top: 2em;">
+                      <a href="https://x.com/frederickavita" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="ui circular icon button">
+  <i class="twitter icon"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-kavita-8a892449/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="ui circular icon button">
+  <i class="linkedin icon"></i>
+</a>
+
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p>© 2025 FigmaToLive.ai. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{end}}

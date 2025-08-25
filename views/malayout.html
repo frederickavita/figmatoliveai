@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{=T.accepted_language or 'en'}}"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <!-- www.phpied.com/conditional-comments-block-downloads/ -->
+    <!-- Always force latest IE rendering engine
+         (even in intranet) & Chrome Frame
+         Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge{{=not request.is_local and ',chrome=1' or ''}}">
+     <!-- OpenGraph -->
+    <meta property="og:title" content="FigmaToLive.ai | From Figma to Interactive React, Friction-Free.">
+    <meta property="og:description" content="Transform your Figma designs into interactive React prototypes with simple natural language annotations.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1A1A1A/F0F0F0?text=FigmaToLive.ai">
+    <meta property="og:url" content="https://www.figmatolive.ai">
+    <meta property="og:type" content="website">
+
+
+    
+
+    <!--  Mobile Viewport Fix
+          j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag
+          device-width: Occupy full width of the screen in its current orientation
+          initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
+          user-scalable = yes allows the user to zoom in -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{=response.title or request.application}}</title>
+    <!-- http://dev.w3.org/html5/markup/meta.name.html -->
+    <meta name="application-name" content="{{=request.application}}">
+    <!-- Speaking of Google, don't forget to set your site up:
+         http://google.com/webmasters -->
+    <meta name="google-site-verification" content="">
+    <!-- include stylesheets -->
+    <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{=URL('static','images/favicon.png')}}">
+    <!-- All JavaScript at the bottom, except for Modernizr which enables
+         HTML5 elements & feature detects -->
+    <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
+    <!-- Favicons -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css">
+
+
+  </head>
+
+  <!-- Minimal CSS Overrides for Dark Theme & Premium Feel -->
+    <style>
+        /* * OVERRIDE CSS
+         * This block contains the minimal styles to enforce the dark theme,
+         * adjust typography, and improve accessibility (focus states).
+         */
+        body {
+            background-color: #1A1A1A;
+            color: #F0F0F0;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Typography & Spacing */
+        .ui.header, h1, h2, h3, p {
+            color: #F0F0F0;
+        }
+        .ui.text.container {
+            max-width: 720px !important;
+        }
+        .ui.vertical.segment {
+            padding: 6em 0em;
+            border-bottom: 1px solid #333;
+        }
+        .masthead.segment {
+            min-height: 700px;
+            padding: 7em 0em 1em; /* Adjusted padding for fixed menu */
+        }
+
+        /* Buttons & CTAs */
+        .ui.primary.button {
+            background-color: #007BFF;
+            color: #fff;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .ui.primary.button:hover, .ui.primary.button:focus {
+            background-color: #0069d9;
+            transform: translateY(-2px);
+        }
+        .ui.inverted.button {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Accessibility: Custom Focus State */
+        a:focus, button:focus, summary:focus, input:focus {
+            outline: 2px solid #007BFF !important;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        
+        /* Pre-registration form */
+        #pre-registration-form {
+            max-width: 600px;
+            margin: 3em auto 0;
+            background: #252525;
+            padding: 2em;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+
+        /* FAQ Styling with <details> */
+        details {
+            background: #252525;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            border: 1px solid #444;
+        }
+        summary {
+            padding: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        details[open] summary {
+            border-bottom: 1px solid #444;
+        }
+        details .content {
+            padding: 1em;
+            color: #ccc;
+        }
+
+
+    .error_wrapper{
+    display:none; 
+    }
+
+
+    /* Timed Message Styling [NEW] */
+        #timed-message {
+            position: fixed;
+            top: 5em; /* Position below the fixed menu */
+            right: 2em;
+            z-index: 1000;
+            max-width: 400px;
+            display: none; /* Hidden by default */
+        }
+
+    </style>
+
+
+  <body>
+  {{block body}}
+  {{end}}
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js"></script>
+
+
+   <script>
+        $(document).ready(function() {
+            // Show the message on page load
+            $('#timed-message').fadeIn();
+
+            // Allow the user to close the message manually
+            $('#timed-message .close').on('click', function() {
+                $(this).closest('.message').transition('fade');
+            });
+
+            // Automatically hide the message after 3 seconds
+            setTimeout(function() {
+                $('#timed-message').transition('fade');
+            }, 7000);
+        });
+    </script>
+
+ <script>
+$(document).ready(function() {
+// Vérifie si le flash n'est pas le message de succès
+var flashMsg = "{{=response.flash}}";
+if (flashMsg == 'Please correct the errors below.') {
+// Scroll smooth vers l’élément #pre-registration
+$('html, body').animate({
+scrollTop: $("#pre-registration").offset().top
+}, 600); // durée en ms
+}
+});
+</script>
+</html>
